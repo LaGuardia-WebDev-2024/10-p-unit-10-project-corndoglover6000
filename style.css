@@ -14,17 +14,12 @@ html{
   width: 100%;
 }
 
-#myCanvas1 {
-  border: 1px solid black;
-  background-image: url("supermarket-interior-shelf_165488-3982.avif");
+
+#myCanvas2 {
+  background-image: url("https://specials-images.forbesimg.com/imageserve/65f8b8ca95922b7aaa395af8/Katamari-Damacy-introduction/960x0.jpg?fit=scale");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-#myCanvas2 {
-  border: 1px solid black;
-  border-radius: 30px;
 }
 
 

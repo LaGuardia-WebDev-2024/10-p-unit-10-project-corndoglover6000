@@ -9,6 +9,8 @@ var planet = "🪐";
 var planetTotal = 3;
 var planetFound = 0;
 
+var item = ["⌛", "👽", "🧙", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+
 setup = function() {
    size(600, 450); 
 
@@ -42,7 +44,7 @@ var check = function(xClick, yClick){
 }
 
 var display = function(){
-  background(100,100,100);
+  background(0,0,0,0);
 
   fill(200,200,0);
   textSize(20);
