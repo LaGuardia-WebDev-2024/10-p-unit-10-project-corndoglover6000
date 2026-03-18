@@ -9,7 +9,13 @@ var planet = "🪐";
 var planetTotal = 3;
 var planetFound = 0;
 
-var item = ["⌛", "👽", "🧙", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+var item = ["⌛", "👽", "🧙", "☂️", "💍", "🌍", "🦞", "🐈", "🍖", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+var itemTotal = 50;
+var itemFound = 0;
+var itemXPos = [];
+var itemYPos = [];
+
+var prince = loadImage("https://static.wikia.nocookie.net/p__/images/e/eb/Img_prince.png/revision/latest?cb=20231102135857&path-prefix=protagonist");
 
 setup = function() {
    size(600, 450); 
@@ -47,7 +53,9 @@ var display = function(){
   background(0,0,0,0);
 
   fill(200,200,0);
-  textSize(20);
+  textSize(35);
+  
+  
 
   for(var i = 0; i < planetXPos.length; i ++){
     text(planet, planetXPos[i], planetYPos[i]);
@@ -57,16 +65,16 @@ var display = function(){
     text(star, starXPos[i], starYPos[i]);
   }
 
-  fill(0,0,0);
-  rect(0,400,600,50);
   fill(255,255,255);
-  text("Find The " + planet + "s   |   " + planet + " " + planetFound + "/" + planetTotal, 0, 425);
+  text(itemFound + "/" + itemTotal, 10, 435);
 
-  if(planetFound == planetTotal){
+  if(itemFound == itemTotal){
     fill(0, 200, 200);
     textSize(50);
-    text("Press 'r' to restart \nthe game", 50, 200);
+    text("Press 'r' to restart the game", 50, 200);
   }
+  
+  image(prince, 200, 200, 130, 130);
 }
 
 var reset = function(){
@@ -75,6 +83,10 @@ var reset = function(){
   planetXPos = [];
   planetYPos = [];
   planetFound = 0;
+  
+  var itemFound = 0;
+  var itemXPos = [];
+  var itemYPos = [];
 
 
   for(var i = 0; i < starTotal; i++){

@@ -1,17 +1,21 @@
 body {
-  background-image: url("Sprinkles.jpg");
-  background-color: hsl(213, 85%, 92%);
+  background-image: url("https://image.api.playstation.com/vulcan/ap/rnd/202305/0221/a219da1f93b0e1eefd3bd30f8e0224d22deec9bf635cd786.png");
+  background-color: hsla(213, 85%, 92%, 0.473);
   background-blend-mode: overlay;
   text-align: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed; 
-  font-family: Georgia, serif;
+  font-family: sans-serif;
 }
 
 html{
   height: 100%;
   width: 100%;
+}
+
+p {
+  font-size: 20px;
 }
 
 
