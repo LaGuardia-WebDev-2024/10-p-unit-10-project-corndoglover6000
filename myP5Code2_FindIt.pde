@@ -1,21 +1,13 @@
-var starXPos = [];
-var starYPos = [];
-var star = "⭐️";
-var starTotal = 100;
-
-var planetXPos = [];
-var planetYPos = [];
-var planet = "🪐";
-var planetTotal = 3;
-var planetFound = 0;
-
-var item = ["⌛", "👽", "🧙", "☂️", "💍", "🌍", "🦞", "🐈", "🍖", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+var itemBank = ["⌛", "🛸", "🧙", "☂️", "💍", "🌍", "🦞", "🐈", "🍖", "🛀", "🎈", "🧫", "📺", "🔮", "🏺", "🧲", "📫", "🎠", "🚁", "🛶", ".", "🏥", "🎡", "🎮", "🪀", "🪕", "🎨", "🥡", "🍎", "🌭", "🦑", ".", "🐋", "🦩", "🦖", "🐒", "🧜🏿", "👴🏿", "👩🏾‍🎤", "👩🏽‍💻", ".", "📎", "🪑", "💿", "📸", "💡", "🛒", "🛍", "🧿", "🌻"];
+var item = [];
 var itemTotal = 50;
 var itemFound = 0;
 var itemXPos = [];
 var itemYPos = [];
 
 var prince = loadImage("https://static.wikia.nocookie.net/p__/images/e/eb/Img_prince.png/revision/latest?cb=20231102135857&path-prefix=protagonist");
+var princeX = 250;
+var princeY = 150;
 
 setup = function() {
    size(600, 450); 
@@ -31,23 +23,25 @@ draw = function(){
     }
    }
 
+   if(keyPressed){
+    if(key == 'w'){
+      princeY -= 3;
+    }
+    if(key == 'a'){
+      princeX -= 3;
+    }
+    if(key == 's'){
+      princeY += 3;
+    }
+    if(key == 'd'){
+      princeX += 3;
+    }
+   }
+  
+
   display();
 }
 
-
-mouseClicked = function(){
-  check(mouseX, mouseY);
-}
-
-var check = function(xClick, yClick){
-  for(var i = 0; i < planetXPos.length; i++){
-    if(dist(xClick - 5, yClick - 5, planetXPos[i], planetYPos[i])<15){
-      planetXPos.splice(i, 1);
-      planetYPos.splice(i, 1);
-      planetFound++;
-    }
-  }
-}
 
 var display = function(){
   background(0,0,0,0);
@@ -57,45 +51,37 @@ var display = function(){
   
   
 
-  for(var i = 0; i < planetXPos.length; i ++){
-    text(planet, planetXPos[i], planetYPos[i]);
+  for(var i = 0; i < itemXPos.length; i ++){
+    text(item[i], itemXPos[i], itemYPos[i]);
   }
 
-  for(var i = 0; i < starXPos.length; i ++){
-    text(star, starXPos[i], starYPos[i]);
-  }
-
+  //dont change this
   fill(255,255,255);
   text(itemFound + "/" + itemTotal, 10, 435);
 
   if(itemFound == itemTotal){
     fill(0, 200, 200);
     textSize(50);
-    text("Press 'r' to restart the game", 50, 200);
+    text("your katamari is now a star! 'r' to restart", 50, 200);
   }
   
-  image(prince, 200, 200, 130, 130);
+  image(prince, princeX, princeY, 130, 130);
 }
 
 var reset = function(){
-  starXPos = [];
-  starYPos = [];
-  planetXPos = [];
-  planetYPos = [];
-  planetFound = 0;
   
-  var itemFound = 0;
-  var itemXPos = [];
-  var itemYPos = [];
+  itemFound = 0;
+  itemXPos = [];
+  itemYPos = [];
+  item = [];
 
 
-  for(var i = 0; i < starTotal; i++){
-    starXPos.push(random(0,600));
-    starYPos.push(random(0,400));
-  }
+  
 
-  for(var i = 0; i < planetTotal; i++){
-    planetXPos.push(random(0,600));
-    planetYPos.push(random(0,400));
+
+  for(var i = 0; i < itemTotal; i++){
+    item.push(itemBank[round(random(itemBank.length-1))])
+    itemXPos.push(random(0,600));
+    itemYPos.push(random(0,400));
   }
 }
