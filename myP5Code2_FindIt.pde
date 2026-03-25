@@ -44,7 +44,13 @@ draw = function(){
 
   display();
   
+  var textThing = 0;
 
+  while (textThing < 600) {
+    text("⍟", 100, 435);
+    textThing += 20;
+  }
+  
 }
 
 var check = function(xClick, yClick){
@@ -73,6 +79,8 @@ var display = function(){
     stuffNum++;
   }
 
+  
+
   for(var i = 0; i < itemXPos.length; i ++){
     text(item[i], itemXPos[i], itemYPos[i]);
   }
@@ -84,7 +92,7 @@ var display = function(){
   if(itemFound == itemTotal){
     fill(255, 235, 0);
     textSize(30);
-    text("your katamari is now a star! 'r' to restart", 40, 200);
+    text("your katamari is now a star! 'r' to restart", 40, 250);
   }
   
   image(prince, princeX, princeY, 130, 130);
