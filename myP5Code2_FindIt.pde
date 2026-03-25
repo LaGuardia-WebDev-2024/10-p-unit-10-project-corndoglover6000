@@ -1,9 +1,12 @@
-var itemBank = ["⌛", "🛸", "🧙", "☂️", "💍", "🌍", "🦞", "🐈", "🍖", "🛀", "🎈", "🧫", "📺", "🔮", "🏺", "🧲", "📫", "🎠", "🚁", "🛶", ".", "🏥", "🎡", "🎮", "🪀", "🪕", "🎨", "🥡", "🍎", "🌭", "🦑", ".", "🐋", "🦩", "🦖", "🐒", "🧜🏿", "👴🏿", "👩🏾‍🎤", "👩🏽‍💻", ".", "📎", "🪑", "💿", "📸", "💡", "🛒", "🛍", "🧿", "🌻"];
+var itemBank = ["⌛", "🛸", "🧙", "☂️", "💍", "🌍", "🦞", "🐈", "🍖", "🛀", "🎈", "🧫", "📺", "🔮", "🏺", "🧲", "📫", "🎠", "🚁", "🛶", "🧯", "🏥", "🎡", "🎮", "🪀", "🪕", "🎨", "🥡", "🍎", "🌭", "🦑", "🤠", "🐋", "🦩", "🦖", "🐒", "🧜🏿", "👴🏿", "👩🏾‍🎤", "👩🏽‍💻", "🐉", "📎", "🪑", "💿", "📸", "💡", "🛒", "🥬", "🧿", "🌻"];
 var item = [];
 var itemTotal = 50;
 var itemFound = 0;
 var itemXPos = [];
 var itemYPos = [];
+
+var coolStuff = ["✭", "✷", "⍟", "❉", "☯", "◉", "꙰"];
+var stuffNum = 0;
 
 var prince = loadImage("https://static.wikia.nocookie.net/p__/images/e/eb/Img_prince.png/revision/latest?cb=20231102135857&path-prefix=protagonist");
 var princeX = 250;
@@ -40,6 +43,19 @@ draw = function(){
   
 
   display();
+  
+
+}
+
+var check = function(xClick, yClick){
+  for(var i = 0; i < itemXPos.length; i++){
+    if(dist(xClick + 20, yClick + 65, itemXPos[i], itemYPos[i])<30){
+      itemXPos.splice(i, 1);
+      itemYPos.splice(i, 1);
+      item.splice(i, 1);
+      itemFound++;
+    }
+  }
 }
 
 
@@ -49,7 +65,13 @@ var display = function(){
   fill(200,200,0);
   textSize(35);
   
-  
+  //figure this out
+  while(stuffNum < coolStuff.length){
+    textSize(random(30,45));
+    fill(random(255), random(255), random(255));
+    text(coolStuff[stuffNum], 10, 40+stuffNum*50);
+    stuffNum++;
+  }
 
   for(var i = 0; i < itemXPos.length; i ++){
     text(item[i], itemXPos[i], itemYPos[i]);
@@ -60,12 +82,14 @@ var display = function(){
   text(itemFound + "/" + itemTotal, 10, 435);
 
   if(itemFound == itemTotal){
-    fill(0, 200, 200);
-    textSize(50);
-    text("your katamari is now a star! 'r' to restart", 50, 200);
+    fill(255, 235, 0);
+    textSize(30);
+    text("your katamari is now a star! 'r' to restart", 40, 200);
   }
   
   image(prince, princeX, princeY, 130, 130);
+
+  check(princeX, princeY);
 }
 
 var reset = function(){
@@ -76,7 +100,7 @@ var reset = function(){
   item = [];
 
 
-  
+  //hi estlin!
 
 
   for(var i = 0; i < itemTotal; i++){
