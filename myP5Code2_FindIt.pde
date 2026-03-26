@@ -8,7 +8,7 @@ var itemYPos = [];
 var coolStuff = ["✭", "✷", "⍟", "❉", "☯", "◉", "꙰"];
 var stuffNum = 0;
 
-var prince = loadImage("https://static.wikia.nocookie.net/p__/images/e/eb/Img_prince.png/revision/latest?cb=20231102135857&path-prefix=protagonist");
+var prince = loadImage("https://static.wikia.nocookie.net/p__/images/e/eb/Img_prince.png");
 var princeX = 250;
 var princeY = 150;
 
