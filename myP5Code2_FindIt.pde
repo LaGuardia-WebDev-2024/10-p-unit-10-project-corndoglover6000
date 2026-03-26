@@ -55,7 +55,7 @@ draw = function(){
 
 var check = function(xClick, yClick){
   for(var i = 0; i < itemXPos.length; i++){
-    if(dist(xClick + 20, yClick + 65, itemXPos[i], itemYPos[i])<30){
+    if(dist(xClick + 50, yClick + 65, itemXPos[i], itemYPos[i])<30){
       itemXPos.splice(i, 1);
       itemYPos.splice(i, 1);
       item.splice(i, 1);
@@ -95,7 +95,7 @@ var display = function(){
     text("your katamari is now a star! 'r' to restart", 40, 250);
   }
   
-  image(prince, princeX, princeY, 130, 130);
+  image(prince, princeX, princeY, 150, 120);
 
   check(princeX, princeY);
 }
