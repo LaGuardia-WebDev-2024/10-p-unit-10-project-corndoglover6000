@@ -8,7 +8,7 @@ var itemYPos = [];
 var coolStuff = ["✭", "✷", "⍟", "❉", "☯", "◉", "꙰"];
 var stuffNum = 0;
 
-var prince = loadImage("https://static.wikia.nocookie.net/p__/images/e/eb/Img_prince.png");
+var prince = loadImage("https://katamaridamacy-rolling-live.bn-ent.net/images/play/img_prince.png");
 var princeX = 250;
 var princeY = 150;
 
